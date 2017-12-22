@@ -1,0 +1,497 @@
+* {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+input, textarea {
+	-webkit-user-select: auto !important;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+	max-width: 100%;
+}
+
+select {
+	display: inline-block;
+	height: 50px;
+	font-size: 24px;
+	background: rgba(0,0,0,0);
+	color: white;
+	border: 0;
+}
+option {
+	display: block;
+	color: grey;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+
+
+
+
+/*            Основное            */
+.centerContainer {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#body, #loading {
+	display: block;
+	width: auto;
+	height: 100%;
+	max-width: 100%;
+	margin-right: 120px;
+}
+
+#topLine {
+	width: 100%;
+	height: 50px;
+	background: #555;
+	overflow: hidden;
+}
+
+#namePage {
+	text-align: center;
+	line-height: 50px;
+	font-size: 22px;
+	color: white;
+	padding-left: 20px;
+}
+
+#nameProject {
+	text-align: center;
+	line-height: 50px;
+	font-size: 22px;
+	color: white;
+	padding-left: 20px;
+}
+
+
+
+#menuToggle {
+	float: right;
+	padding: 0 3px;
+	color: white;
+	cursor: pointer;
+	height: 50px;
+}
+#menuToggle img {
+	width: 36px;
+	height: 36px;
+	padding: 7px;
+}
+
+.block {
+	width: 100%;
+	margin: 10px 0;
+	background: white;
+	box-shadow: 0px 1px 5px 0 grey;
+}
+
+
+
+
+
+/*            Меню            */
+#menu {
+	float: right;
+	display: none;
+	width: 120px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.menu {
+	padding: 5px;
+	cursor: pointer;
+}
+
+.menu:hover .icon_menu {
+	background: #a7f;
+}
+
+.menu:hover .text_menu {
+	color: #a7f;
+}
+
+.icon_menu {
+	display: inline-block;
+	margin: 10px 5px 0px 5px;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	background: white;
+	overflow: hidden;
+	border: 1px solid grey;
+}
+
+.icon_menu img {
+	width: 40px;
+	height: 40px;
+	padding: 10px;
+}
+
+.text_menu {
+	font-size: 20px;
+	line-height: 14px;
+}
+
+
+
+
+
+/*            Окна            */
+.window {
+	display: none;
+	height: 100%;
+}
+
+
+
+
+
+/*            Загрузка            */
+#window_loading {
+	display: block;
+}
+
+#loading {
+	text-align: center;
+	padding-top: 20px;
+}
+
+
+
+
+
+/*            Расписание            */
+#enterGroupOrFio {
+	margin: 10px;
+}
+#inputGroupOrFio {
+	display: block;
+	width: auto;
+	margin-right: 53px;
+}
+#GroupOrFio {
+	width: 100%;
+	font-size: 16px;
+	text-align: center;
+	border: 1px solid #bbb;
+	padding: 10px 0;
+	height: 30px;
+}
+#screenRasp {
+	float: right;
+	width: 40px;
+	height: 40px;
+	padding: 5px;
+	background: white;
+	border: 1px solid #bbb;
+	border-left: 0;
+}
+#screenRasp:hover {
+	background: #ddd;
+}
+#screenRasp:active {
+	background: #aaa;
+}
+#screenRasp img {
+	width: 32px;
+	height: 32px;
+	padding: 4px;
+}
+.groupOrFio {
+	padding: 14px 0;
+	font-size: 18px;
+	text-align: center;
+	background: white;
+	border-bottom: 1px solid #aaa;
+	cursor: pointer;
+	color: #333;
+}
+
+.nameDay {
+	color: #555;
+	padding: 4px 6px;
+	font-size: 20px;
+}
+.lessons {
+	border-top: 1px solid #eee;
+}
+.timeLessons {
+	padding-top: 14px;
+	color: #509;
+	font-size: 20px;
+	font-family: monospace;
+	text-align: center;
+}
+.lesson {
+	padding: 0px 5px;
+	margin-top: 5px;
+}
+.auditory {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	padding: 6px 0 4px;
+	font-family: sans-serif;
+}
+.lessonInfo {
+	float: left;
+	width: 100%;
+	padding: 5px;
+}
+.nameLesson {
+	font-size: 20px;
+}
+.teacher {
+	margin-top: 5px;
+	font-size: 16px;
+	color: #333;
+	padding-bottom: 5px;
+}
+.dateLesson {
+	font-size: 14px;
+	color: #666;
+	text-align: right;
+	padding: 5px;
+	padding-top: 0;
+}
+
+
+
+
+
+/*            О паре            */
+#timeLesson {
+	text-align: center;
+	font-size: 20px;
+	padding: 10px 0;
+	color: #84a;
+}
+#nameLesson {
+	font-size: 20px;
+	padding: 0 10px;
+}
+#teacherLesson {
+	font-size: 16px;
+	padding: 5px 10px;
+	color: #84a;
+}
+#auditoryLesson {
+	text-align: center;
+	font-size: 20px;
+	padding: 5px 0;
+	color: white;
+}
+#dateLesson {
+	padding: 5px;
+	text-align: center;
+	font-size: 20px;
+}
+
+
+
+
+
+/*            Адреса и спортзалы            */
+.block_address {
+	background: white;
+	border-bottom: 1px solid #ddd;
+}
+
+.designation {
+	text-align: center;
+	font-size: 20px;
+	padding: 8px;
+	font-weight: bold;
+}
+
+.address {
+	-webkit-user-select: all;
+	-moz-user-select: all;
+	-ms-user-select: all;
+	user-select: all;
+	font-size: 16px;
+	padding: 0 6px 8px;
+	color: #555;
+}
+
+#dopInfo {
+	background: white;
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 14px;
+}
+
+.section {
+	text-align: center;
+	padding-bottom: 10px;
+	font-size: 20px;
+}
+
+
+
+
+
+/*            Настройки            */
+.block_settings {
+	padding: 10px;
+	font-size: 20px;
+	line-height: 20px;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+	color: #333;
+}
+.block_settings input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+}
+
+.nameSettings {
+	font-size: 18px;
+	margin-bottom: 9px;
+}
+
+#showRaspForThisWeek {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+}
+
+
+@media (max-width: 1200px) {
+	/*            Основное            */
+	.centerContainer {
+		width: 100%;
+	}
+
+	#body, #loading {
+		width: auto;
+	}
+
+	.block {
+		width: 100%;
+		margin: 5px 0px 5px 0px;
+	}
+
+
+
+
+	/*            Меню            */
+	#menu {
+		width: 60px;
+	}
+
+	.icon_menu {
+		margin: 0px;
+		width: 50px;
+		height: 50px;
+		border-radius: 30px;
+		background: white;
+		overflow: hidden;
+	}
+
+	.icon_menu img {
+		width: 30px;
+		height: 30px;
+		padding: 10px;
+	}
+
+	.text_menu {
+		display: none;
+	}
+
+
+
+
+
+	/*            Расписание            */
+	.timeLessons {
+		font-size: 14px;
+		padding-top: 8px;
+	}
+	.auditory {
+		font-size: 16px;
+		padding: 6px 0 2px;
+	}
+	.nameLesson {
+		font-size: 16px;
+	}
+	.teacher {
+		font-size: 14px;
+	}
+	.dateLesson {
+		font-size: 12px;
+	}
+}
+
+/*Баловство с todo*/
+#column-1 {
+  width: 31%;
+  float: left;
+  min-height: 100%;
+	border: 3px solid #eee;
+	background-color: white;
+}
+
+#column-2 {
+  width: 33%;
+  height: 100%;
+  float: left;
+	border: : 3px solid #eee;
+	background-color: white;
+	margin-left: 1%;
+	position: relative;
+}
+
+#column-3 {
+  width: 32%;
+	margin-left: 1%;
+  min-height: 100%;
+  float: left;
+	border: 3px solid #eee;
+	background-color: white;
+	position: relative;
+}
+
+#mainCategoryList {
+	font-size: 20px
+}
+#mainCategoryList ul{
+	font-size: 14px;
+}
+
+#mainCategoryList ul li{
+	margin-top: 0.5em;
+}
+#column-3 ul{
+	list-style-type: none;
+	overflow: auto;
+	position: absolute;
+	height: 80%
+}
+#column-3 ul li {
+	padding-top: 2em;
+	font-size: 12px;
+}
+#column-3 i {
+	font-size: 14px;
+
+}
+#column-3 strong {
+		padding-left: 1em;
+		font-weight: 300
+}
