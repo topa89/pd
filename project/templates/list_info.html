@@ -5,10 +5,10 @@
 		{% for cats in list|slice:":1" %}
 			<div id="nameProject" style="color: black; font-size: 26px">{{ cats.title }}</div><hr></hr>
 			<div style="color: black; float: left; margin-left: 10%; width: 100%">Ответственный: {{ cats.student }}</div>
-			<div style="color: black; float: left; margin-left: 10%; width: 100%; margin-top: 1em">Важность: {{ cats.importance_type }}</a></div>
+			<div style="color: black; float: left; margin-left: 10%; width: 100%; margin-top: 1em">Важность: {{ importance|get_item:cats.importance_type }}</a></div>
 			<div id="namePage" style="color: gray">Описание</div>
 			<div style="color: black; float: left; margin-left: 10%; width: 80%">{{ cats.description }}</div>
-			<div style="color: black; position: absolute; float: left; margin-left: 10%; width: 100%; margin-bottom: 1em; bottom: 0">Статус: {{ cats.status_type }}</div>
+			<div style="color: black; position: absolute; float: left; margin-left: 10%; width: 100%; margin-bottom: 1em; bottom: 0">Статус: {{ status|get_item:cats.status_type }}</div>
 		{% endfor %}
 	{% endfor %}
 </div>
