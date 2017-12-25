@@ -1,5 +1,3 @@
-
-{% if todo %}
 	<div id="column-1">
 		<div id="namePage" style="border: 3px solid #eee; background-color: #555">Задачи</div>
 		<ul>
@@ -8,16 +6,12 @@
                     <li id = "mainCategoryList">{{ category|get_item:cats.category }}
                         <ul>
                             {% for cat in list %}
-                            <li><a>{{ cat.title }}</a></li>
+                            <li onclick="call_counter({{cat.id}})"><a>{{ cat.title }}</a></li>
                             {% endfor %}
 				        </ul>
                     </li><br>
             {% endfor %}
             {% endfor %}
 
-            {% else %}
-    <p>Проблемы с запросами.</p>
-
-{% endif %}
 		</ul>
 	</div>

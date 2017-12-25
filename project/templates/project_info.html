@@ -1,3 +1,4 @@
+{% block info %}
 {% if project_info %}
     {% for project in project_info %}
 <div id="column-2" style="margin-top: 0.2em">
@@ -11,3 +12,5 @@
 </div>
     {% endfor %}
 {% endif %}
+
+{% endblock %}
