@@ -1,19 +1,19 @@
-	{% block tasks %}
-    <div id="column-1">
-		<div id="namePage" style="border: 3px solid #eee; background-color: #555">Задачи</div>
-		<ul>
-            {% for list in todo %}
-                {% for cats in list|slice:"0:1" %}
-                    <li id = "mainCategoryList">{{ category|get_item:cats.category }}
-                        <ul>
-                            {% for cat in list %}
-                            <li onclick="call_counter({{cat.id}})"><a>{{ cat.title }}</a></li>
-                            {% endfor %}
-				        </ul>
-                    </li><br>
-            {% endfor %}
-            {% endfor %}
+{% block tasks %}
+<div id="column-1">
+	<div id="namePage" style="border: 3px solid #eee; background-color: #555">Задачи</div>
+	<ul>
+        {% for list in todo %}
+            {% for cats in list|slice:"0:1" %}
+                <li id="mainCategoryList">{{ category|get_item:cats.category }}
+                    <ul>
+                        {% for cat in list %}
+                        <li onclick="call_counter({{cat.id}})">{{ cat.title }}</li>
+                        {% endfor %}
+			        </ul>
+                </li><br>
+        {% endfor %}
+        {% endfor %}
 
-		</ul>
-	</div>
-    {% endblock %}
+	</ul>
+</div>
+{% endblock %}
