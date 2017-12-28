@@ -1,4 +1,5 @@
-	<div id="column-1">
+	{% block tasks %}
+    <div id="column-1">
 		<div id="namePage" style="border: 3px solid #eee; background-color: #555">Задачи</div>
 		<ul>
             {% for list in todo %}
@@ -15,3 +16,4 @@
 
 		</ul>
 	</div>
+    {% endblock %}

@@ -1,31 +1,59 @@
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.template import Context, Template
 from django.template.defaulttags import register
-from django.template import Template, Context
+from django.views.generic.base import View
+from django.views.generic.edit import FormView
+
 from .models import Projects, TodoList
-from django.http import HttpResponse
 
 
+class LoginFormView(FormView):
+    form_class = AuthenticationForm
+    template_name = "project/login.html"
+    success_url = "/"
+    
+    def form_valid(self, form):
+        self.user = form.get_user()
+        login(self.request, self.user)
+        return super(LoginFormView, self).form_valid(form)
+
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect("/")
 
 # Create your views here.
 def index(request):
-    return render(request, "__base.html", {
+    context = {
         "project_info": Projects.objects.filter(title='Лунный ровер'),
         "todo": list(TodoList.objects.filter(category=i) for i in range(len(TodoList.CATEGORY))),
-
         # TODO: сделать доступ к value без создания дополнительных dict
         "category": dict(TodoList.CATEGORY[i] for i in range(len(TodoList.CATEGORY))),
         "status": dict(TodoList.STATUS[i] for i in range(len(TodoList.STATUS))),
         "importance": dict(TodoList.IMPORTANCE[i] for i in range(len(TodoList.IMPORTANCE))),
-    },
-                  )
+    }
+    return render(request, 'project/index.html', context )
 
-def list_info(request):
-    t = Template("<html><body>It is now {{ todo_list }}</body></html>")
-    html = t.render(Context({'todo_list': 12}))
-    return HttpResponse(html)
+def todo_info(request):
+    context = {   
+        "todo": list(TodoList.objects.filter(category=i) for i in range(len(TodoList.CATEGORY))),
+        # TODO: сделать доступ к value без создания дополнительных dict
+        "category": dict(TodoList.CATEGORY[i] for i in range(len(TodoList.CATEGORY))),
+        "status": dict(TodoList.STATUS[i] for i in range(len(TodoList.STATUS))),
+        "importance": dict(TodoList.IMPORTANCE[i] for i in range(len(TodoList.IMPORTANCE))),
+        "info": list(TodoList.objects.filter(id=15)),
+    }
+    return render(request,'project/list_info.html', context )
 
 
 @register.filter(name='get_item')
 def get_item(dictionary, key):
     return dictionary.get(key)
 
+@register.filter(name='get_info')
+def get_info(query, id):
+    return query

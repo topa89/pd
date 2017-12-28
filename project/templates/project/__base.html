@@ -1,25 +1,37 @@
-{% load staticfiles i18n %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Интернет Городок</title>
-	<link rel="stylesheet" type="text/css" href="/static/main.css">
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>
 		function call_counter(id) {
-
 			{% for list in todo %}
 				{% for cats in list %}
-				alert('1');
 				if("{{ cats.id }}" == id) {
 			$("div#column-2").replaceWith(
 				'<div id="column-2" style="margin-top: 0.2em"><div id="namePage" style="border: 3px solid #eee; background-color: #555">Подробнее</div><div id="nameProject" style="color: black; font-size: 26px">{{ cats.title }}</div><hr></hr><div style="color: black; float: left; margin-left: 10%; width: 100%">Ответственный: {{ cats.student }}</div><div style="color: black; float: left; margin-left: 10%; width: 100%; margin-top: 1em">Важность: {{ importance|get_item:cats.importance_type }}</a></div><div id="namePage" style="color: gray">Описание</div><div style="color: black; float: left; margin-left: 10%; width: 80%">{{ cats.description }}</div><div style="color: black; position: absolute; float: left; margin-left: 10%; width: 100%; margin-bottom: 1em; bottom: 0">Статус: {{ status|get_item:cats.status_type }}</div></div>')}{% endfor %}{% endfor %};
             }
 	</script>
-	<meta charset="utf-8">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<title>Интернет Городок</title>
 </head>
 <body>
-{% include "index.html" %}
+	{% if user.is_authenticated %}
+	<a href="/logout" style="float: right">Выход</a>	
+		{% block tasks %}
+			{% include "project/tasks.html" %}
+		{% endblock %}
+		{% block information %}
+			{% include "project/project_info.html" %}
+		{% endblock %}
+		{% block chat %}
+			{% include "project/chat.py" %}
+		{% endblock %}
+    {% else %}
+      <a href="/login">Вход</a>
+    {% endif %}
 </body>
 </html>
