@@ -123,7 +123,7 @@ a:hover {
 	background-color: white;
 }
 
-#column-2 {
+.column-2 {
     width: 33%;
     height: 100%;
     float: left;

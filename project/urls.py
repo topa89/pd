@@ -8,5 +8,4 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^login/$', views.LoginFormView.as_view()),
     url(r'^logout/$', views.LogoutView.as_view()),
-    url(r'^info/$', views.todo_info, {'list_id':'pk'}),
     	]

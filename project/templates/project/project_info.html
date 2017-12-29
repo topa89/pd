@@ -1,14 +1,18 @@
 {% block info %}
     {% for project in project_info %}
-<div id="column-2" style="margin-top: 0.2em">
-	<div id="namePage" style="border: 3px solid #eee; background-color: #555">Подробнее</div>
-	<div id="nameProject" style="color: black; font-size: 26px">{{project.title}}</div><hr></hr>
+<div id="col-sm">
+	<div class="col-sm-5">
+	<div style="height: 4em; background-color: #555; color: white"><p style="text-align: center; font-size: 24px; padding-top: 0.5em">Подробнее</div>
+	<div class="list-group-item" style="height: 550px">
+	<div id="nameProject" style="color: black; font-size: 26px; text-align: center;">{{project.title}}</div><hr></hr>
 	<div style="color: black; float: left; margin-left: 10%; width: 100%">Куратор: {{project.kurator}}</div>
 	<div style="color: black; float: left; margin-left: 10%; width: 100%; margin-top: 1em">Студенты: <a href="#">показать</a></div>
-	<div id="description" style="color: gray">Описание</div>
+	<div style="color: gray; text-align: center; font-size: 20px">Описание</div>
 	<div style="color: black; float: left; margin-left: 10%; width: 80%">{{project.description}}</div>
 	<div style="color: black; position: absolute; float: left; margin-left: 10%; width: 100%; margin-bottom: 1em; bottom: 0">Срок сдачи: {{project.deadline}}</div>
-</div>
     {% endfor %}
+   </div>
+</div>
+</div>
 
 {% endblock %}
