@@ -29,9 +29,9 @@ class LogoutView(View):
 # Create your views here.
 def index(request):
     context = {
-        "project_info": Projects.objects.filter(id=2),
+        "project_info": Projects.objects.filter(id=3),
         "todo": list(TodoList.objects.filter(category=i) for i in range(len(TodoList.CATEGORY))),
-        "todo2": list(TodoList.objects.filter(project=2)),
+        "todo2": list(TodoList.objects.filter(project=3)),
 
         # TODO: сделать доступ к value без создания дополнительных dict
         "category": dict(TodoList.CATEGORY[i] for i in range(len(TodoList.CATEGORY))),

@@ -1,0 +1,7 @@
+{% extends "project/__base.html" %}
+
+{% block tasks %}
+	{% for post in object_list %}
+		<h5>{{ post }}</h5>
+	{% endfor %}
+{% endblock %}

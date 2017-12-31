@@ -1,6 +1,4 @@
 from django.db import models
-
-
 # Create your models here.
 
 class Group(models.Model):
@@ -14,19 +12,9 @@ class Projects(models.Model):
     description = models.CharField(max_length=64,verbose_name=u"Описание")
     deadline = models.CharField(max_length=20, verbose_name=u"Срок сдачи")
     kurator = models.CharField(max_length=64, verbose_name=u"Куратор")
-
+    
     def __str__(self):
         return '{}'.format(self.title)
-
-class Student(models.Model):
-    firts_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=30)
-    patronymic = models.CharField(max_length=20)
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE, verbose_name=u"Выберите проект")
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name=u"Группа")
-
-    def __str__(self):
-        return '{} {}'.format(self.firts_name,self.last_name)
 
 
 class TodoList(models.Model):
