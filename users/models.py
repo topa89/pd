@@ -1,14 +1,12 @@
 from django.db import models
-from project.models import Projects
+from project.models import Projects, Group
+from django.contrib.auth.models import User
 
-class User(models.Model):
-	project = models.ForeignKey(Projects, blank=True, null = True, default=None, on_delete = models.CASCADE) 
-	first_name = models.CharField(max_length = 20)
-	last_name = models.CharField(max_length = 30)
-	group = models.CharField(max_length = 10)
-	e_mail = models.EmailField(max_length = 70, blank = True)
-	password = models.CharField(max_length = 50)
+class Users(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null = True, default = None,)
+	project = models.ForeignKey(Projects, blank=True, null = True, default = None, on_delete = models.CASCADE) 
+	group = models.ForeignKey(Group, blank = True, null = True, default = None, on_delete = models.CASCADE )
 
 
-	def __str__(self):
-		return '{} {}'.format(self.first_name, self.last_name)
+
+

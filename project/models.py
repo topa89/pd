@@ -1,4 +1,5 @@
 from django.db import models
+
 # Create your models here.
 
 class Group(models.Model):
@@ -12,7 +13,7 @@ class Projects(models.Model):
     description = models.CharField(max_length=64,verbose_name=u"Описание")
     deadline = models.CharField(max_length=20, verbose_name=u"Срок сдачи")
     kurator = models.CharField(max_length=64, verbose_name=u"Куратор")
-    
+
     def __str__(self):
         return '{}'.format(self.title)
 
