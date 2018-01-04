@@ -2,7 +2,8 @@
 
 <div class="col-sm-4">
 	<div style="height: 4em; background-color: #555; color: white"><p style="text-align: center; font-size: 24px; padding-top: 0.5em">Чат<a href="/logout" style="float: right">Выход</a>	</div>
-	<ul>
+    <div class="well sidebar-nav">
+        <ul class="nav" style="overflow-y:auto; max-height: 500px">
 		<li><i style="color: blue">Антон</i><br><strong>Не могу понять что за ошибка и как её исправить?</strong></li>
 		<li><i style="color: red">Андрей</i><br><strong>Тебе же все написали.</strong></li>
 		<li><i style="color: blue">Антон</i><br><strong>что написали?</strong></li>
@@ -21,8 +22,11 @@
 		<li><i style="color: red">Антон</i><br><strong>ни у кого нет идей?</strong></li>
 
 	</ul>
-	<input type="text" style="position: absolute; margin-left: 4em; bottom: 0; margin-bottom: 1em;">
+    </div>
+
+    <input type="text" style="position: absolute; margin-left: 4em; bottom: 0; margin-bottom: 1em;">
 	<input type="image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1054386-200.png" value="Отправить" name="имя" width="58px" height="58px" style="position: absolute; bottom: 0; margin-left: 24em">
+
 </div>
 
 {% endblock %}

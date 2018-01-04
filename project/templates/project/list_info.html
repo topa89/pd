@@ -1,23 +1,27 @@
-{% extends "project/__base.html" %}
-
-{% block tasks %}
-	{% include "project/tasks.html" %}
-{% endblock %}
 {% block information %}
-	{% for list in info %}
-	<div id="column-2" style="margin-top: 0.2em">
-		<div id="namePage" style="border: 3px solid #eee; background-color: #555">Подробнее</div>
-		<div id="nameProject" style="color: black; font-size: 26px">{{ list.title }}</div><hr></hr>
-		<div style="color: black; float: left; margin-left: 10%; width: 100%">Ответственный:{{ list.student }} </div>
-		<div style="color: black; float: left; margin-left: 10%; width: 100%; margin-top: 1em">Важность: {{ importance|get_item:list.importance_type }} </a></div>
-		<div id="namePage" style="color: gray">Описание</div>
-		<div style="color: black; float: left; margin-left: 10%; width: 80%">{{ list.description }}</div>
-		<div style="color: black; position: absolute; float: left; margin-left: 10%; width: 100%; margin-bottom: 1em; bottom: 0">Статус: {{ status|get_item:list.status_type }}
-		</div>
+{% include "project/project_info.html" %}
+
+{% for list in todo %}
+{% for cats in list %}
+<div class="col-sm" id="{{ cats.id }}" style="display: none;">
+    <div class="col-sm-5">
+        <div style="height: 4em; background-color: #555; color: white"><p
+                style="text-align: center; font-size: 24px; padding-top: 0.5em">Подробнее</div>
+        <div class="list-group-item">
+            <div style="color: black; font-size: 26px; text-align: center;">{{ cats.title }}</div>
+            <hr></hr>
+            <div style="color: black; float: left; margin-left: 10%; width: 100%">Ответственный: {{ cats.student }}
+            </div>
+            <div style="color: black; float: left; margin-left: 10%; width: 100%; margin-top: 1em">Важность: {{
+                importance|get_item:cats.importance_type }}</a></div>
+            <div style="color: gray; text-align: center; font-size: 20px">Описание</div>
+            <div style="color: black; float: left; margin-left: 10%; width: 80%">{{ cats.description }}</div>
+            <div style="color: black; position: absolute; float: left; margin-left: 10%; width: 100%; margin-bottom: 1em; bottom: 0">
+                Статус: {{ status|get_item:cats.status_type }}
+            </div>
+        </div>
+    </div>
 	</div>
 	{% endfor %}
+{% endfor %}
 {% endblock %}
-{% block chat %}
-	{% include "project/chat.py" %}
-{% endblock %}
-

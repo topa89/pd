@@ -10,11 +10,13 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
 		function call_counter(id) {
-			{% for cats in todo2 %}
-			$( "#{{ cats.id }}" ).hide();
-				if("{{ cats.id }}" == id) {
-			$("#col-sm").replaceWith(
-				$( "#{{ cats.id }}" ).show()); }{% endfor %};
+			{% for list in todo %}
+				{% for cats in list%}
+					$( "#{{ cats.id }}" ).hide();
+					if("{{ cats.id }}" == id) {
+						$("#col-sm").replaceWith($( "#{{ cats.id }}" ).show()); }
+				{% endfor %}
+			{% endfor %};
             }
 	</script>
 	<title>Интернет Городок</title>
