@@ -8,30 +8,33 @@ from .models import Projects, TodoList, Group
 
 # Register your models here.
 class ProjectUsers(admin.TabularInline):
-	model = Users
-	fk_name = "project"
+    model = Users
+    fk_name = "project"
     fields = ['group', 'user']
     can_delete = False
     verbose_name_plural = 'Студенты'
 
 
 class ProjectAdmin(admin.ModelAdmin):
-	inlines=[
-		ProjectUsers
-	]
+    inlines = [
+        ProjectUsers
+    ]
+
 
 class DopUserInfo(admin.StackedInline):
-	model = Users
-	can_delete = False
-	verbose_name_plural = 'Дополнительно'
+    model = Users
+    can_delete = False
+    verbose_name_plural = 'Дополнительно'
+
 
 class UsersAdmin(BaseUserAdmin):
-	inlines = [DopUserInfo]
+    inlines = [DopUserInfo]
 
 
 class TodoListAdmin(admin.ModelAdmin):
     list_filter = ['project', 'category']
     list_display = ['project', 'category', 'title']
+
 
 admin.site.unregister(User)
 admin.site.register(User, UsersAdmin)
