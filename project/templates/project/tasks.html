@@ -9,7 +9,9 @@
             <li class="list-group-item"><h4>{{ category|get_item:cats.category }}</h4>
                     <ul>
                         {% for cat in list %}
-                        <li onclick="call_counter({{cat.id}})">{{ cat.title }}</li>
+                        <a>
+                            <li onclick="call_counter({{cat.id}})">{{ cat.title }}</li>
+                        </a>
                         {% endfor %}
                     </ul>
                 </li><br>

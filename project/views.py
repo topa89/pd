@@ -14,23 +14,21 @@ from .models import Projects, TodoList
 # noinspection PyAttributeOutsideInit
 class LoginFormView(FormView):
     form_class = AuthenticationForm
-    template_name = "project/login.html"
-    success_url = "/"
+    template_name = 'project/login.html'
+    success_url = '/'
+    """Если юзер правильный то открываем проект, в котором он участвует"""
 
     def form_valid(self, form):
         self.user = form.get_user()
         login(self.request, self.user)
         super(LoginFormView, self).form_valid(form)
-        context = {
-            "project_info": Projects.objects.filter(title=self.user.users.project),
-            "todo": list(TodoList.objects.filter(category=i, project=self.user.users.project) for i in
-                         range(len(TodoList.CATEGORY))),
-
-            # TODO: сделать доступ к value без создания дополнительных dict
-            "category": dict(TodoList.CATEGORY[i] for i in range(len(TodoList.CATEGORY))),
-            "status": dict(TodoList.STATUS[i] for i in range(len(TodoList.STATUS))),
-            "importance": dict(TodoList.IMPORTANCE[i] for i in range(len(TodoList.IMPORTANCE))),
-        }
+        context = dict(project_info=Projects.objects.filter(title=self.user.users.project),
+                       todo=list(TodoList.objects.filter(category=i, project=self.user.users.project) for i in
+                                 range(len(TodoList.CATEGORY))),
+                       category=dict(TodoList.CATEGORY[i] for i in range(len(TodoList.CATEGORY))),
+                       status=dict(TodoList.STATUS[i] for i in range(len(TodoList.STATUS))),
+                       importance=dict(TodoList.IMPORTANCE[i] for i in range(len(TodoList.IMPORTANCE))))
+        assert isinstance(self.request, object)
         context.update(csrf(self.request))
         return render(self.request, 'project/index.html', context)
 
