@@ -6,7 +6,7 @@
         <ul class="list-group">
         {% for list in todo %}
             {% for cats in list|slice:"0:1" %}
-            <li class="list-group-item"><h4>{{ category|get_item:cats.category }}</h4>
+            <li class="list-group-item"><h4>{{ cats.category }}</h4>
                     <ul>
                         {% for cat in list %}
                         <a>

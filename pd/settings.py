@@ -75,12 +75,8 @@ WSGI_APPLICATION = 'pd.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test_database',
-        'USER': 'test_user',
-        'PASSWORD': 'qwerty',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 

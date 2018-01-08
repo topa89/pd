@@ -14,6 +14,16 @@ class Group(models.Model):
         verbose_name_plural = "Группы"
 
 
+class ProjectCategories(models.Model):
+    title = models.CharField(max_length=20, verbose_name=u'Название')
+
+    def __str__(self):
+        return '{}'.format(self.title)
+
+    class Meta:
+        verbose_name_plural = 'Категории для проектов'
+
+
 class Projects(models.Model):
     title = models.CharField(max_length=64, verbose_name=u"Название")
     description = models.CharField(max_length=64, verbose_name=u"Описание")
@@ -49,7 +59,7 @@ class TodoList(models.Model):
     )
     )
     project = models.ForeignKey(Projects, on_delete=models.CASCADE, verbose_name=u"Выберите проект")
-    category = models.PositiveIntegerField(choices=CATEGORY, default=0, verbose_name=u"Категория")
+    category = models.ForeignKey(ProjectCategories, on_delete=models.CASCADE, verbose_name=u'Категория')
     title = models.CharField(max_length=40, verbose_name=u"Название")
     description = models.TextField(verbose_name=u"Описание")
     student = models.CharField(max_length=64, verbose_name=u"Студент")

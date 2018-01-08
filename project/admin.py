@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
 from users.models import Users
-from .models import Projects, TodoList, Group
+from .models import Projects, TodoList, Group, ProjectCategories
 
 
 # Register your models here.
@@ -41,3 +41,4 @@ admin.site.register(User, UsersAdmin)
 admin.site.register(Projects, ProjectAdmin)
 admin.site.register(TodoList, TodoListAdmin)
 admin.site.register(Group)
+admin.site.register(ProjectCategories)
