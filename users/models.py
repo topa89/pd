@@ -3,6 +3,8 @@ from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 
+from project.models import Group, Projects
+
 
 class UserManager(BaseUserManager):
 
@@ -15,7 +17,7 @@ class UserManager(BaseUserManager):
         )
 
         user.set_password(password)
-        user.is_admin = True
+        user.is_admin = False
         user.save(using=self._db)
         return user
 
@@ -58,18 +60,17 @@ class ExtUser(AbstractBaseUser, PermissionsMixin):
         null=True,
         blank=True
     )
-    register_date = models.DateField(
-        'Дата регистрации',
-        auto_now_add=True
-    )
     is_active = models.BooleanField(
         'Активен',
         default=True
     )
     is_admin = models.BooleanField(
-        'Суперпользователь',
-        default=True
+        'Администратор',
+        default=False
     )
+
+    group = models.OneToOneField(Group, on_delete=models.CASCADE, null=True)
+    project = models.OneToOneField(Projects, on_delete=models.CASCADE, null=True)
 
     # Этот метод обязательно должен быть определён
     def get_full_name(self):

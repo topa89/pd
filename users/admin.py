@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from project.models import Projects
+from project.models import Projects, Group
 from users.forms import UserChangeForm
 from users.forms import UserCreationForm
 from users.models import ExtUser
@@ -24,16 +24,16 @@ class UserAdmin(UserAdmin):
 
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {
+        ('Личная информация', {
             'fields': (
-                'avatar',
                 'date_of_birth',
                 'firstname',
                 'lastname',
                 'middlename',
+                'group',
+                'project'
             )}),
         ('Permissions', {'fields': ('is_admin',)}),
-        ('Important dates', {'fields': ('last_login',)}),
     )
 
     add_fieldsets = (
@@ -56,3 +56,4 @@ class UserAdmin(UserAdmin):
 # Регистрация нашей модели
 admin.site.register(ExtUser, UserAdmin)
 admin.site.register(Projects)
+admin.site.register(Group)

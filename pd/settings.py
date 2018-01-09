@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'pd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase3',
+        'NAME': 'mydatabase4',
     }
 }
 # Password validation
